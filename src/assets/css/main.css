@@ -9,7 +9,7 @@
     font-family: 'Ubuntu Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('Ubuntu Regular'), local('Ubuntu Regular'),
+    src: local('Ubuntu Regular'), local('UbuntuRegular'),
     url('../font/Ubuntu-Regular.ttf') format('truetype');
 }
 h1,h2,h3,h4,h5 {
