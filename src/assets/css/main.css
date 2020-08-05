@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'VoiceInMyHead';
+    font-style: normal;
+    font-weight: normal;
+    src: local('VoiceInMyHead'), local('VoiceInMyHead'),
+    url('../font/VoiceInMyHead.otf') format('truetype');
+}
+@font-face {
+    font-family: 'Ubuntu Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Ubuntu Regular'), local('Ubuntu Regular'),
+    url('../font/Ubuntu-Regular.ttf') format('truetype');
+}
+h1,h2,h3,h4,h5 {
+    font-family: "VoiceInMyHead", serif;
+    font-size: 3.6em;
+    color: #013120;
+}
+hr {
+    color: #013120;
+}
+p {
+    font-size: 2.6em;
+    color: #1B4480;
+    font-family: 'Ubuntu Regular', serif;
+}
+#app {
+    background-color: #DBE8E1;
+}

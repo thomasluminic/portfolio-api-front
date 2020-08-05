@@ -1,15 +1,15 @@
 <template>
     <v-app>
         <navbar/>
-        <presentation/>
+        <presentation :numberProject="numberProjects" />
     </v-app>
 </template>
 
 <script>
     import Navbar from './components/Navbar';
     import Presentation from './components/Presentation';
-    import { getToken } from "./assets/js/axiosRequest";
-    import { mapActions } from 'vuex';
+    import { getToken, getProjects } from "./assets/js/axiosRequest";
+    import { mapActions, mapGetters } from 'vuex';
 
     export default {
         name: 'App',
@@ -18,13 +18,25 @@
             Presentation,
         },
         data: () => ({
-            //
+            projects: {},
+            numberProjects: 0,
         }),
-        mounted() {
+        beforeCreate() {
             getToken().then((response) => {
                 this.setToken(response.token)
-            })
+            });
         },
+        created() {
+            getProjects(this.token).then((response) => {
+                this.projects = response["hydra:member"];
+                this.numberProjects = response["hydra:totalItems"];
+            });
+        },
+        computed: Object.assign({},
+            mapGetters([
+                'token',
+            ])
+        ),
         methods: Object.assign({},
             mapActions([
                 'setToken',
@@ -32,3 +44,6 @@
         ),
     };
 </script>
+<style>
+    @import "assets/css/main.css";
+</style>

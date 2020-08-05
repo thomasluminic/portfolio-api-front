@@ -19,11 +19,11 @@ export function getToken() {
     });
 }
 
-export function axiosUser(token) {
+export function getProjects(token) {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
-            url: `${ baseUri }api/users`,
+            url: `${ baseUri }api/projects`,
             headers: {
                 "Authorization" : `Bearer ${token}`
             },
