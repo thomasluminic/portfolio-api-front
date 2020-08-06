@@ -25,6 +25,9 @@ p {
     color: #1B4480;
     font-family: 'Ubuntu Regular', serif;
 }
+.margin-section {
+    margin-bottom: 150px;
+}
 #app {
     background-color: #DBE8E1;
 }

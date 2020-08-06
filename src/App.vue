@@ -2,12 +2,14 @@
     <v-app>
         <navbar/>
         <presentation :numberProject="numberProjects" />
+        <project :projects="projects"/>
     </v-app>
 </template>
 
 <script>
     import Navbar from './components/Navbar';
     import Presentation from './components/Presentation';
+    import Project from "./components/Project";
     import { getToken, getProjects } from "./assets/js/axiosRequest";
     import { mapActions, mapGetters } from 'vuex';
 
@@ -16,6 +18,7 @@
         components: {
             Navbar,
             Presentation,
+            Project,
         },
         data: () => ({
             projects: {},
