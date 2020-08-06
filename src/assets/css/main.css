@@ -18,6 +18,8 @@ h1,h2,h3,h4,h5 {
     color: #013120;
 }
 hr {
+    width: 55%;
+    margin: auto 50px;
     color: #013120;
 }
 p {
