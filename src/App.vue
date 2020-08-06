@@ -1,8 +1,9 @@
 <template>
     <v-app>
         <navbar/>
-        <presentation :numberProject="numberProjects" />
+        <presentation :numberProject="numberProjects"/>
         <project :projects="projects"/>
+        <formation :formations="formations"/>
     </v-app>
 </template>
 
@@ -10,7 +11,8 @@
     import Navbar from './components/Navbar';
     import Presentation from './components/Presentation';
     import Project from "./components/Project";
-    import { getToken, getProjects } from "./assets/js/axiosRequest";
+    import Formation from "./components/Formation";
+    import {getToken, getProjects, getFormations} from "./assets/js/axiosRequest";
     import { mapActions, mapGetters } from 'vuex';
 
     export default {
@@ -19,9 +21,11 @@
             Navbar,
             Presentation,
             Project,
+            Formation,
         },
         data: () => ({
             projects: {},
+            formations: {},
             numberProjects: 0,
         }),
         beforeCreate() {
@@ -33,6 +37,9 @@
             getProjects(this.token).then((response) => {
                 this.projects = response["hydra:member"];
                 this.numberProjects = response["hydra:totalItems"];
+            });
+            getFormations(this.token).then((response) => {
+                this.formations = response["hydra:member"];
             });
         },
         computed: Object.assign({},

@@ -32,8 +32,5 @@
 </script>
 
 <style scoped>
-    hr {
-        width: 55%;
-        margin: auto 50px;
-    }
+
 </style>

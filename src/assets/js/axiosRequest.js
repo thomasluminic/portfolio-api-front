@@ -23,9 +23,25 @@ export function getProjects(token) {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
-            url: `${ baseUri }api/projects`,
+            url: `${baseUri}api/projects`,
             headers: {
-                "Authorization" : `Bearer ${token}`
+                "Authorization": `Bearer ${token}`
+            },
+        }).then((response) => {
+            resolve(response.data);
+        }).catch((error) => {
+            reject(error.response.statusText);
+        });
+    });
+}
+
+export function getFormations(token) {
+    return new Promise((resolve, reject) => {
+        axios({
+            method: 'get',
+            url: `${baseUri}api/formations`,
+            headers: {
+                "Authorization": `Bearer ${token}`
             },
         }).then((response) => {
             resolve(response.data);
