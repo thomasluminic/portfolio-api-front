@@ -4,6 +4,7 @@
         <presentation :numberProject="numberProjects"/>
         <project :projects="projects"/>
         <formation :formations="formations"/>
+        <contact/>
     </v-app>
 </template>
 
@@ -12,6 +13,7 @@
     import Presentation from './components/Presentation';
     import Project from "./components/Project";
     import Formation from "./components/Formation";
+    import Contact from "./components/Contact";
     import {getToken, getProjects, getFormations} from "./assets/js/axiosRequest";
     import { mapActions, mapGetters } from 'vuex';
 
@@ -22,6 +24,7 @@
             Presentation,
             Project,
             Formation,
+            Contact,
         },
         data: () => ({
             projects: {},
