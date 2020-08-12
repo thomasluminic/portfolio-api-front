@@ -50,3 +50,17 @@ export function getFormations(token) {
         });
     });
 }
+
+export function postContacts(form) {
+    return new Promise((resolve, reject) => {
+        axios({
+            method: 'post',
+            url: `${baseUri}contact`,
+            data: form,
+        }).then((response) => {
+            resolve(response.data);
+        }).catch((error) => {
+            reject(error.response.statusText);
+        });
+    });
+}

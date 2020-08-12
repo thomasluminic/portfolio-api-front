@@ -27,6 +27,7 @@
                 :key="item.title"
                 link
                 class="nav-list-item"
+                @click="$vuetify.goTo(item.target, options)"
             >
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -42,16 +43,40 @@
 <script>
     export default {
         name: 'Navbar',
-
         data: () => ({
             items: [
-                { title: 'Présentation', icon: 'mdi-face' },
-                { title: 'Mes projets', icon: 'mdi-book' },
-                { title: 'Formation', icon: 'mdi-school' },
-                { title: 'Contact', icon: 'mdi-send' },
-                { title: 'Mes résaux sociaux', icon: 'mdi-share' },
+                {
+                    title: 'Présentation',
+                    icon: 'mdi-face',
+                    target: '#presentation',
+                },
+                {
+                    title: 'Mes projets',
+                    icon: 'mdi-book',
+                    target: '#project',
+                },
+                {
+                    title: 'Formation',
+                    icon: 'mdi-school',
+                    target: '#formation',
+                },
+                {
+                    title: 'Contact',
+                    icon: 'mdi-send',
+                    target: '#contact',
+                },
+                {
+                    title: 'Mes résaux sociaux',
+                    icon: 'mdi-share',
+                    target: '#socialNetwork',
+                },
             ],
             right: null,
+            options: {
+                duration: 1000,
+                offset: 0,
+                easing: 'easeInCubic',
+            }
         }),
     }
 </script>
