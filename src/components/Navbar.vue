@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer
             :expand-on-hover="true"
-            absolute
+            :fixed="true"
             dark
     >
         <v-list-item two-line>
