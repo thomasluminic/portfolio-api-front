@@ -6,7 +6,7 @@
             <hr>
         </v-col>
     </v-row>
-    <v-row>
+    <v-row class="margin-section">
         <v-col
             v-for="skill in skills"
             :key="skill.name"
@@ -19,6 +19,7 @@
                 width="80"
                 class="ma-auto"
                 :alt="skill.name"
+                v-scrollanimation
             ></v-img>
         </v-col>
     </v-row>
@@ -43,5 +44,13 @@
 </script>
 
 <style scoped>
-
+    .before-enter {
+        opacity: 0;
+        transform: rotate(0.5turn);
+        transition: all 1.6s cubic-bezier(.25,.7,.36,1.68);
+    }
+    .enter {
+        opacity: 1;
+        transform: rotate(0turn);
+    }
 </style>
