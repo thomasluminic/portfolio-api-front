@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <navbar/>
-        <presentation :numberProject="numberProjects"/>
+        <presentation :numberProject="numberProjects" :position="position"/>
         <skill :skills="skills" />
-        <project :projects="projects"/>
+        <project :projects="projects" :position="position"/>
         <formation :formations="formations"/>
         <contact/>
         <Footer />
@@ -37,7 +37,13 @@
             formations: {},
             skills: {},
             numberProjects: 0,
+            position: 0,
         }),
+        watch: {
+            position () {
+
+            }
+        },
         created() {
             getProjects().then((response) => {
                 this.projects = response["hydra:member"];

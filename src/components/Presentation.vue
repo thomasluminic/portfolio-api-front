@@ -4,39 +4,39 @@
             <v-col
                     class="d-flex align-center flex-column title-margin"
             >
-                <h2 class="title-animation">Thomas Luminic</h2>
-                <h2 class="subtitle-animation">Developpeur web</h2>
+                <h2 v-scrollanimation>Thomas Luminic</h2>
+                <h2 class="transform-subtitle" v-scrollanimation>Developpeur web</h2>
             </v-col>
         </v-row>
-        <v-row class="align-center justify-center" id="presentation">
+        <v-row class="align-center justify-center margin-section" id="presentation">
             <h1>Presentation</h1>
             <hr>
         </v-row>
-        <v-row class="mt-10">
+        <v-row class="mt-10 margin-section">
             <v-col cols="6" class="d-flex flex-column align-center">
-                <p class="text-animation-right">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-cake-variant</v-icon>
                     {{ age }} ans
                 </p>
-                <p class="text-animation-right">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-iframe</v-icon>
                     1 an d'expérience
                 </p>
-                <p class="text-animation-right">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-file-document-multiple-outline</v-icon>
                     {{ numberProject }} projets
                 </p>
             </v-col>
             <v-col cols="6" class="text-center">
-                <p class="text-animation">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-head-heart-outline</v-icon>
                     Passioné
                 </p>
-                <p class="text-animation">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-crown</v-icon>
                     Challenger
                 </p>
-                <p class="text-animation">
+                <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-coffee</v-icon>
                     Il me faut un café
                 </p>
@@ -53,9 +53,14 @@
                 Number,
                 default: 0,
             },
+            position: {
+                Number,
+                default: 0,
+            }
         },
         data: () => ({
             age: '',
+            scroll: 0,
         }),
         mounted() {
             this.age = this.calculateAge();
@@ -67,8 +72,8 @@
                 let age = new Date(diff);
 
                 return Math.abs(age.getUTCFullYear() - 1970);
-            }
-        }
+            },
+        },
     }
 </script>
 
@@ -76,51 +81,23 @@
     .v-icon.v-icon {
         font-size: 35px;
     }
-
+    .before-enter {
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 1.6s cubic-bezier(.25,.7,.36,1.68);
+    }
+    .enter {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    .transform-subtitle {
+        transition-delay: 0.6s;
+    }
     .title-margin {
         margin: 300px auto 300px auto;
-    }
-
-    .title-animation {
-        animation-name: text-slide;
-        animation-duration: 0.6s;
-    }
-
-    .subtitle-animation {
-        animation: 0.6s 0.3s text-slide both;
-        opacity: 0;
     }
     hr {
         width: 55%;
         margin: auto 50px;
-    }
-    .text-animation {
-        animation: 0.6s 0.3s text-slide both;
-        opacity: 0;
-    }
-    .text-animation-right {
-        animation: 0.6s 0.3s text-slide-right both;
-        opacity: 0;
-    }
-
-    @keyframes text-slide {
-        from {
-            margin-left: 900px;
-            opacity: 0
-        }
-        to {
-            margin-left: 0;
-            opacity: 1
-        }
-    }
-    @keyframes text-slide-right {
-        from {
-            margin-right: 900px;
-            opacity: 0
-        }
-        to {
-            margin-right: 0;
-            opacity: 1
-        }
     }
 </style>

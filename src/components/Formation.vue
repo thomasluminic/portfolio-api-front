@@ -1,31 +1,35 @@
 <template>
 <v-container id="formation">
-    <v-row>
+    <v-row class="margin-section">
         <v-col class="d-flex align-center justify-center">
             <h1>Formation</h1>
             <hr>
         </v-col>
     </v-row>
-    <v-timeline>
-        <v-timeline-item
-                v-for="formation in formations"
-                :key="formation.id"
-                small
-        >
-            <template v-slot:opposite>
+    <v-row class="justify-center margin-section">
+        <v-col cols="10">
+            <v-timeline>
+                <v-timeline-item
+                        v-for="formation in formations"
+                        :key="formation.id"
+                        small
+                >
+                    <template v-slot:opposite>
     <span
             class="headline font-weight-bold"
     >{{ formation.dateStart | formatDate | capitalize }} - {{ formation.dateEnd | formatDate | capitalize }}</span>
-            </template>
-            <v-col>
-                <h2 class="headline font-weight-light mb-4">{{ formation.name }}</h2>
-                <div>
-                    <p>{{ formation.location }} - {{formation.qualification}}</p>
-                    <p>{{ formation.qualification }}</p>
-                </div>
-            </v-col>
-        </v-timeline-item>
-    </v-timeline>
+                    </template>
+                    <v-col>
+                        <h2 class="headline font-weight-light mb-4">{{ formation.name }}</h2>
+                        <div>
+                            <p>{{ formation.location }} - {{formation.qualification}}</p>
+                            <p>{{ formation.qualification }}</p>
+                        </div>
+                    </v-col>
+                </v-timeline-item>
+            </v-timeline>
+        </v-col>
+    </v-row>
 </v-container>
 </template>
 
