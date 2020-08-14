@@ -6,7 +6,7 @@
     <v-card
             flat
             tile
-            class="primary lighten-1 accent--text text-center"
+            class="primary accent--text text-center"
     >
         <v-card-text>
             <v-btn
@@ -38,7 +38,7 @@
 
         <v-divider></v-divider>
         <v-card-text class="accent--text">
-            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+            {{ new Date().getFullYear() }} — <strong>Portfolio</strong>
         </v-card-text>
     </v-card>
 </v-footer>
@@ -64,7 +64,11 @@
                     target: '#presentation',
                 },
                 {
-                    title: 'Mes projets',
+                    title: 'Compétences',
+                    target: '#skill',
+                },
+                {
+                    title: 'Projets',
                     target: '#project',
                 },
                 {

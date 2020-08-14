@@ -1,5 +1,5 @@
 <template>
-    <v-container id="presentation" class="margin-section">
+    <v-container class="margin-section">
         <v-row>
             <v-col
                     class="d-flex align-center flex-column title-margin"
@@ -8,7 +8,7 @@
                 <h2 class="subtitle-animation">Developpeur web</h2>
             </v-col>
         </v-row>
-        <v-row class="align-center justify-center">
+        <v-row class="align-center justify-center" id="presentation">
             <h1>Presentation</h1>
             <hr>
         </v-row>

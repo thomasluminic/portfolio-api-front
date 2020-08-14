@@ -51,7 +51,12 @@
                     target: '#presentation',
                 },
                 {
-                    title: 'Mes projets',
+                    title: 'Compétences',
+                    icon: 'mdi-star-circle',
+                    target: '#skill',
+                },
+                {
+                    title: 'Projets',
                     icon: 'mdi-book',
                     target: '#project',
                 },
@@ -64,11 +69,6 @@
                     title: 'Contact',
                     icon: 'mdi-send',
                     target: '#contact',
-                },
-                {
-                    title: 'Mes résaux sociaux',
-                    icon: 'mdi-share',
-                    target: '#socialNetwork',
                 },
             ],
             right: null,

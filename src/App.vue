@@ -2,6 +2,7 @@
     <v-app>
         <navbar/>
         <presentation :numberProject="numberProjects"/>
+        <skill :skills="skills" />
         <project :projects="projects"/>
         <formation :formations="formations"/>
         <contact/>
@@ -16,7 +17,8 @@
     import Formation from "./components/Formation";
     import Contact from "./components/Contact";
     import Footer from "./components/Footer";
-    import {getToken, getProjects, getFormations} from "./assets/js/axiosRequest";
+    import Skill from "./components/Skill";
+    import {getSkills, getProjects, getFormations} from "./assets/js/axiosRequest";
     import { mapActions, mapGetters } from 'vuex';
 
     export default {
@@ -28,24 +30,24 @@
             Formation,
             Contact,
             Footer,
+            Skill,
         },
         data: () => ({
             projects: {},
             formations: {},
+            skills: {},
             numberProjects: 0,
         }),
-        beforeCreate() {
-            getToken().then((response) => {
-                this.setToken(response.token)
-            });
-        },
         created() {
-            getProjects(this.token).then((response) => {
+            getProjects().then((response) => {
                 this.projects = response["hydra:member"];
                 this.numberProjects = response["hydra:totalItems"];
             });
-            getFormations(this.token).then((response) => {
+            getFormations().then((response) => {
                 this.formations = response["hydra:member"];
+            });
+            getSkills().then((response) => {
+                this.skills = response["hydra:member"];
             });
         },
         computed: Object.assign({},
