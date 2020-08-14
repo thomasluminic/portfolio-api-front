@@ -13,7 +13,7 @@
             <hr>
         </v-row>
         <v-row class="mt-10 margin-section">
-            <v-col cols="6" class="d-flex flex-column align-center">
+            <v-col xs="12" class="d-flex flex-column align-center">
                 <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-cake-variant</v-icon>
                     {{ age }} ans
@@ -27,7 +27,7 @@
                     {{ numberProject }} projets
                 </p>
             </v-col>
-            <v-col cols="6" class="text-center">
+            <v-col xs="12" class="text-center">
                 <p v-scrollanimation>
                     <v-icon class="primary--text">mdi-head-heart-outline</v-icon>
                     Passioné
@@ -99,5 +99,10 @@
     hr {
         width: 55%;
         margin: auto 50px;
+    }
+    @media screen and (max-width: 600px) {
+        .title-margin {
+            margin: 30px auto 30px auto;
+        }
     }
 </style>
