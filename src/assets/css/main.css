@@ -30,6 +30,9 @@ p {
 .margin-section {
     margin-bottom: 150px;
 }
+.container-margin {
+    margin-bottom: 150px;
+}
 #app {
     background-color: #DBE8E1;
 }

@@ -1,0 +1,47 @@
+<template>
+<v-container class="container-margin" id="skill">
+    <v-row>
+        <v-col class="d-flex align-center justify-center container-margin">
+            <h1>Competences</h1>
+            <hr>
+        </v-col>
+    </v-row>
+    <v-row>
+        <v-col
+            v-for="skill in skills"
+            :key="skill.name"
+            cols="4"
+            class="mb-5"
+        >
+            <v-img
+                :src="srcImage(skill.logo)"
+                aspect-ratio="1"
+                width="80"
+                class="ma-auto"
+                :alt="skill.name"
+            ></v-img>
+        </v-col>
+    </v-row>
+</v-container>
+</template>
+
+<script>
+    export default {
+        name: "Skill",
+        props: {
+            skills: {
+                Array,
+                default: {},
+            }
+        },
+        methods: {
+            srcImage(imageName) {
+                return require(`../assets/images/${imageName}`);
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
