@@ -36,3 +36,29 @@ p {
 #app {
     background-color: #DBE8E1;
 }
+
+@media screen and (max-width: 600px) {
+    hr {
+        display: none;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 2.8em;
+    }
+    .margin-section {
+        margin-bottom: 30px;
+    }
+    .container-margin {
+        margin-bottom: 50px;
+    }
+    p {
+        font-size: 1.6em;
+    }
+    .mobile-display {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    hr {
+        display: none;
+    }
+}

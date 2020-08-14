@@ -26,7 +26,7 @@
                 v-for="item in items"
                 :key="item.title"
                 link
-                class="nav-list-item"
+                :class="`nav-list-item ${ item.title === 'Formation' ? 'd-none d-sm-flex': '' }`"
                 @click="$vuetify.goTo(item.target, options)"
             >
                 <v-list-item-icon>
