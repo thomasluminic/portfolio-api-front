@@ -34,14 +34,17 @@
 
 <script>
     import moment from 'moment'
+    import { getFormations } from "../assets/js/axiosRequest";
     export default {
         name: "Formation",
-        props: {
-            formations: {
-                Array,
-                default: {},
-            },
+        created() {
+            getFormations().then((response) => {
+                this.formations = response["hydra:member"];
+            });
         },
+        data: () => ({
+           formations: {},
+        }),
         filters: {
             capitalize: function(value) {
                 if (!value) return ''
