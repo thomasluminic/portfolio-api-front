@@ -9,7 +9,7 @@
     font-family: 'Ubuntu Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('Ubuntu Regular'), local('Ubuntu Regular'),
+    src: local('Ubuntu Regular'), local('UbuntuRegular'),
     url('../font/Ubuntu-Regular.ttf') format('truetype');
 }
 h1,h2,h3,h4,h5 {
@@ -18,6 +18,8 @@ h1,h2,h3,h4,h5 {
     color: #013120;
 }
 hr {
+    width: 55%;
+    margin: auto 50px;
     color: #013120;
 }
 p {
@@ -25,6 +27,38 @@ p {
     color: #1B4480;
     font-family: 'Ubuntu Regular', serif;
 }
+.margin-section {
+    margin-bottom: 150px;
+}
+.container-margin {
+    margin-bottom: 150px;
+}
 #app {
     background-color: #DBE8E1;
+}
+
+@media screen and (max-width: 600px) {
+    hr {
+        display: none;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 2.8em;
+    }
+    .margin-section {
+        margin-bottom: 30px;
+    }
+    .container-margin {
+        margin-bottom: 50px;
+    }
+    p {
+        font-size: 1.6em;
+    }
+    .mobile-display {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    hr {
+        display: none;
+    }
 }

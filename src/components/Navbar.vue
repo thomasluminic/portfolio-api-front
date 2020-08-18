@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer
             :expand-on-hover="true"
-            absolute
+            :fixed="true"
             dark
     >
         <v-list-item two-line>
@@ -26,7 +26,8 @@
                 v-for="item in items"
                 :key="item.title"
                 link
-                class="nav-list-item"
+                :class="`nav-list-item ${ item.title === 'Formation' ? 'd-none d-sm-flex': '' }`"
+                @click="$vuetify.goTo(item.target, options)"
             >
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -42,16 +43,40 @@
 <script>
     export default {
         name: 'Navbar',
-
         data: () => ({
             items: [
-                { title: 'Présentation', icon: 'mdi-face' },
-                { title: 'Mes projets', icon: 'mdi-book' },
-                { title: 'Formation', icon: 'mdi-school' },
-                { title: 'Contact', icon: 'mdi-send' },
-                { title: 'Mes résaux sociaux', icon: 'mdi-share' },
+                {
+                    title: 'Présentation',
+                    icon: 'mdi-face',
+                    target: '#presentation',
+                },
+                {
+                    title: 'Compétences',
+                    icon: 'mdi-star-circle',
+                    target: '#skill',
+                },
+                {
+                    title: 'Projets',
+                    icon: 'mdi-book',
+                    target: '#project',
+                },
+                {
+                    title: 'Formation',
+                    icon: 'mdi-school',
+                    target: '#formation',
+                },
+                {
+                    title: 'Contact',
+                    icon: 'mdi-send',
+                    target: '#contact',
+                },
             ],
             right: null,
+            options: {
+                duration: 1000,
+                offset: 0,
+                easing: 'easeInCubic',
+            }
         }),
     }
 </script>

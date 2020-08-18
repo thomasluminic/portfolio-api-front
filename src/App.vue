@@ -1,47 +1,35 @@
 <template>
     <v-app>
         <navbar/>
-        <presentation :numberProject="numberProjects" />
+        <presentation/>
+        <skill/>
+        <project/>
+        <formation/>
+        <contact/>
+        <app-footer/>
     </v-app>
 </template>
 
 <script>
     import Navbar from './components/Navbar';
     import Presentation from './components/Presentation';
-    import { getToken, getProjects } from "./assets/js/axiosRequest";
-    import { mapActions, mapGetters } from 'vuex';
+    import Project from "./components/Project";
+    import Formation from "./components/Formation";
+    import Contact from "./components/Contact";
+    import AppFooter from "./components/Footer";
+    import Skill from "./components/Skill";
 
     export default {
         name: 'App',
         components: {
             Navbar,
             Presentation,
+            Project,
+            Formation,
+            Contact,
+            AppFooter,
+            Skill,
         },
-        data: () => ({
-            projects: {},
-            numberProjects: 0,
-        }),
-        beforeCreate() {
-            getToken().then((response) => {
-                this.setToken(response.token)
-            });
-        },
-        created() {
-            getProjects(this.token).then((response) => {
-                this.projects = response["hydra:member"];
-                this.numberProjects = response["hydra:totalItems"];
-            });
-        },
-        computed: Object.assign({},
-            mapGetters([
-                'token',
-            ])
-        ),
-        methods: Object.assign({},
-            mapActions([
-                'setToken',
-            ]),
-        ),
     };
 </script>
 <style>
