@@ -32,7 +32,7 @@ export function getFormations() {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
-            url: `${baseUri}api/formations`,
+            url: `${baseUri}api/formations?order[dateEnd]=desc`,
         }).then((response) => {
             resolve(response.data);
         }).catch((error) => {

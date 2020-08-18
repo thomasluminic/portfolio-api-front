@@ -1,5 +1,5 @@
 <template>
-<v-container id="contact">
+<v-container id="contact" class="margin-section">
     <v-row>
         <v-col class="d-flex align-center justify-center">
             <hr>
