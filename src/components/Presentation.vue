@@ -14,57 +14,55 @@
         </v-row>
         <v-row class="mt-10 margin-section">
             <v-col xs="12" class="d-flex flex-column align-center">
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-cake-variant</v-icon>
-                    {{ age }} ans
-                </p>
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-iframe</v-icon>
-                    1 an d'expérience
-                </p>
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-file-document-multiple-outline</v-icon>
-                    {{ numberProject }} projets
-                </p>
+                <div class="text-left w-50">
+                    <p class="" v-scrollanimation>
+                        <v-icon class="primary--text">mdi-cake-variant</v-icon>
+                        {{ age }} ans
+                    </p>
+                    <p v-scrollanimation>
+                        <v-icon class="primary--text">mdi-iframe</v-icon>
+                        1 an d'expérience
+                    </p>
+                    <p v-scrollanimation>
+                        <v-icon class="primary--text">mdi-file-document-multiple-outline</v-icon>
+                        {{ numberProject }} projets
+                    </p>
+                </div>
             </v-col>
-            <v-col xs="12" class="text-center">
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-head-heart-outline</v-icon>
-                    Passioné
-                </p>
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-crown</v-icon>
-                    Challenger
-                </p>
-                <p v-scrollanimation>
-                    <v-icon class="primary--text">mdi-coffee</v-icon>
-                    Il me faut un café
-                </p>
+            <v-col xs="12" class="d-flex flex-column align-center">
+                <div class="text-left w-50">
+                    <p v-scrollanimation>
+                        <v-icon class="primary--text">mdi-head-heart-outline</v-icon>
+                        Passioné
+                    </p>
+                    <p v-scrollanimation>
+                        <v-icon class="primary--text">mdi-crown</v-icon>
+                        Challenger
+                    </p>
+                    <p v-scrollanimation>
+                        <v-icon class="primary--text">mdi-coffee</v-icon>
+                        Il me faut un café
+                    </p>
+                </div>
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
+
     export default {
         name: "Presentation",
-        props: {
-            numberProject: {
-                Number,
-                default: 0,
-            },
-            position: {
-                Number,
-                default: 0,
-            }
-        },
-        data: () => ({
-            age: '',
-            scroll: 0,
-        }),
         mounted() {
             this.age = this.calculateAge();
         },
+        computed: mapGetters('project', [
+            'numberProject',
+        ]),
+        data: () => ({
+            age: '',
+        }),
         methods: {
             calculateAge() {
                 let birth = new Date('1995-11-12');
@@ -104,5 +102,8 @@
         .title-margin {
             margin: 30px auto 30px auto;
         }
+    }
+    .w-50 {
+        width: 50%;
     }
 </style>

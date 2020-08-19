@@ -16,18 +16,26 @@
 
 <script>
     import Card from './_Card';
+    import { getProjects } from "../assets/js/axiosRequest";
+    import { mapActions } from "vuex";
 
     export default {
         name: "Project",
         components: {
             Card,
         },
-        props: {
-            projects: {
-                Array,
-                default: {},
-            }
-        }
+        created() {
+            getProjects().then((response) => {
+                this.projects = response["hydra:member"];
+                this.setNumberProject(response["hydra:totalItems"]);
+            });
+        },
+        data: () => ({
+           projects: [],
+        }),
+        methods: mapActions('project', [
+            'setNumberProject',
+        ]),
     }
 </script>
 

@@ -19,6 +19,7 @@
                 width="80"
                 class="ma-auto"
                 :alt="skill.name"
+                :title="skill.name"
                 v-scrollanimation
             ></v-img>
         </v-col>
@@ -27,14 +28,18 @@
 </template>
 
 <script>
+    import { getSkills } from "../assets/js/axiosRequest";
+
     export default {
         name: "Skill",
-        props: {
-            skills: {
-                Array,
-                default: {},
-            }
+        created() {
+            getSkills().then((response) => {
+                this.skills = response["hydra:member"];
+            });
         },
+        data: () => ({
+            skills: {},
+        }),
         methods: {
             srcImage(imageName) {
                 return require(`../assets/images/${imageName}`);
