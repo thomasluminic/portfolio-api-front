@@ -11,7 +11,7 @@
 
             <v-list-item-content>
                 <v-list-item-title>Thomas Luminic</v-list-item-title>
-                <v-list-item-subtitle>Portefolio</v-list-item-subtitle>
+                <v-list-item-subtitle>Portfolio</v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
 
