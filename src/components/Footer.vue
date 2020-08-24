@@ -38,7 +38,7 @@
 
         <v-divider></v-divider>
         <v-card-text class="accent--text">
-            {{ new Date().getFullYear() }} — <strong>Portfolio</strong>
+            {{ new Date().getFullYear() }} — <strong>Thomas Luminic</strong> - Portfolio - Réaliser en VueJs, Symfony + Api platform
         </v-card-text>
     </v-card>
 </v-footer>

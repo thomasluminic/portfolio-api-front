@@ -33,7 +33,7 @@
                 <div class="text-left w-50">
                     <p v-scrollanimation>
                         <v-icon class="primary--text">mdi-head-heart-outline</v-icon>
-                        Passioné
+                        Passionné
                     </p>
                     <p v-scrollanimation>
                         <v-icon class="primary--text">mdi-crown</v-icon>
