@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUri = 'http://localhost:8001/';
+const baseUri = 'http://localhost:8000/';
 
 export function getProjects() {
     return new Promise((resolve, reject) => {
